@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<title>Веб-программирование</title>
+
+<f:view>
+    <h:head id="head">
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <!--connecting a style sheet-->
+        <h:outputStylesheet library="css" name = "style_23.css"/>
+
+        <h:graphicImage class="gif">
+            <img src="resources/pictures/пингвинчик.gif" alt="тут был пингвинчик"/>
+        </h:graphicImage>
+
+        <p>Лабораторная работа №3, Bариант 2753 </p>
+        <p>Выполнили: Полозова Екатерина, Кудлаков Роман (P3231)</p>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" type = "text/javascript"></script>
+        <!--h:outputScript library="js" name="canvas.js" type = "text/javascript"/-->
+
+    </h:head>
+    <h:body>
+        <div id="caption">
+
+        </div>
+        <div id="main">
+            <h:form id = "plot">
+                <h:inputHidden id="xCanvas" value="#{form.plotX}">
+                </h:inputHidden>
+                <h:inputHidden id="yCanvas" value="#{form.plotY}">
+                </h:inputHidden>
+                <h:inputHidden id="hit" style="display: none" value="#{form.result}">
+                </h:inputHidden>
+                <canvas id="canvas" width="300" height="300">
+                    Canvas no supported
+                </canvas>
+
+                <p:commandButton id ="hiddenButton" style="display: none" action="#{form.addCoordinates()}" update=":resultTable, plot:hit"/>
+
+            </h:form>
+
+
+            <h:form id="f">
+            <!--submitting-->
+            <p><p:commandButton id="button" class="form_button" name="button" value="Жмяк" action="#{form.addPoint()}" update=":resultTable" /></p>
+                <p><h:commandButton class="form_button" value="Welcome page" type="submit" action="#{form.toWelcomePage}" /></p>
+
+
+                <div id="form">
+
+                    <!--input x-->
+                    <div  class="x" id="x_text">
+                        <p>X value:</p>
+                        <!--radiobutton-->
+
+                        <h:selectOneRadio class = "table_y" value="#{form.x}">
+                            <f:selectItem class = "block" itemValue = "-4" itemLabel = "-4" />
+                            <f:selectItem class = "block" itemValue = "-3" itemLabel = "-3" />
+                            <f:selectItem class = "block" itemValue = "-2" itemLabel = "-2" />
+                            <f:selectItem class = "block" itemValue = "-1" itemLabel = "-1" />
+                            <f:selectItem class = "block" itemValue = "0" itemLabel = "0" />
+                            <f:selectItem class = "block" itemValue = "1" itemLabel = "1" />
+                            <f:selectItem class = "block" itemValue = "2" itemLabel = "2" />
+                            <f:selectItem class = "block" itemValue = "3" itemLabel = "3" />
+                            <f:selectItem class = "block" itemValue = "4" itemLabel = "4" />
+                        </h:selectOneRadio>
+
+                    </div>
+
+                    <!--input y-->
+                    <div class="y" id="checkbox_y">
+                        <p>Y value:</p>
+                        <p><h:message id="mess" for="text_field" style="color:red" /></p>
+                        <h:inputText name="y" id="text_field" value = "#{form.y}" required="true">
+                            <f:converter converterId="converterY"/>
+                            <f:validator validatorId="validatorY"/>
+                            <f:ajax event="change" execute="@this" render="mess"/>
+                        </h:inputText>
+                        <p>y &#8712; (-3; 5)</p>
+                    </div>
+
+                    <!--input R-->
+                    <div class="R">
+                        <p>Radius:</p>
+                        <table class="table_R">
+                            <!--first row-->
+                            <tr>
+                                <td><div class="block">
+                                    <label>
+                                        <p:commandButton style="display: none;" process="@this" class = "buttonR" name="R" value = "1" id="r1" action="#{form.setR(1)}" onclick="createGraphic(1)"/>
+                                        <span class="box"/>
+                                    </label>
+                                </div></td>
+                                <td><label for="r1">1</label></td>
+
+                                <td><div class="block">
+                                    <label>
+                                        <p:commandButton style="display: none;" process="@this" class = "buttonR" name="R" value = "1.5" id="r2" action="#{form.setR(1.5)}" onclick="createGraphic(1.5)"/>
+                                        <span class="box"/>
+                                    </label>
+                                </div></td>
+                                <td><label for="r2">1.5</label></td>
+
+                                <td><div class="block">
+                                    <label>
+                                        <p:commandButton style="display: none;" process="@this" class = "buttonR" name="R" value = "2" id="r3" action="#{form.setR(2)}" onclick="createGraphic(2)"/>
+                                        <span class="box"/>
+                                    </label>
+                                </div></td>
+                                <td><label for="r3">2</label></td>
+                            </tr>
+                            <!--second row-->
+                            <tr>
+                                <td><div class="block">
+                                    <label>
+                                        <p:commandButton style="display: none;" process="@this" class = "buttonR" name="R" value = "2.5" id="r4" action="#{form.setR(2.5)}" onclick="createGraphic(2.5)"/>
+                                        <span class="box"/>
+                                    </label>
+                                </div></td>
+                                <td><label for="r4">2.5</label></td>
+
+                                <td><div class="block">
+                                    <label>
+                                        <p:commandButton style="display: none;" process="@this" class = "buttonR" name="R" value = "3" id="r5" action="#{form.setR(3)}" onclick="createGraphic(3)"/>
+                                        <span class="box"/>
+                                    </label>
+                                </div></td>
+                                <td><label for="r5">3</label></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+
+        <div id="result">
+            <h:dataTable id = "resultTable" value="#{form.list}" var="row"
+                         styleClass="order-table" headerClass="order-table-header"
+                         rowClasses="order-table-row" >
+
+                <h:column>
+                    <f:facet name="header">
+                        Координата X
+                    </f:facet>
+                    #{row.x}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        Координата Y
+                    </f:facet>
+                    #{row.y}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        Радиус
+                    </f:facet>
+                    #{row.r}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        Результат
+                    </f:facet>
+                    #{row.result}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        Время работы
+                    </f:facet>
+                    #{row.workTime} мс
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        Текущее время
+                    </f:facet>
+                    #{row.currentTime}
+                </h:column>
+            </h:dataTable>
+        </div>
+
+        <h:outputScript library="js" name="canvas.js" type = "text/javascript"/>
+        <h:outputScript library="js" name="radioButton.js"/>
+    </h:body>
+</f:view>
+</html>
+

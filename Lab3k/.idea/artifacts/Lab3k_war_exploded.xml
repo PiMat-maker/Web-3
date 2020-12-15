@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Lab3k:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Lab3k_war_exploded.war</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Lab3k/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Lab3k" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Mojarra-2.4.0" />
+          <element id="library" level="project" name="PrimeFaces-6.1" />
+          <element id="library" level="project" name="Java EE 6-Java EE 6" />
+          <element id="library" level="project" name="postgresql-42.2.14" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
