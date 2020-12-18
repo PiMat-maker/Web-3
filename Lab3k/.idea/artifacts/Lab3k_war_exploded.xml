@@ -12,8 +12,10 @@
           <element id="library" level="project" name="PrimeFaces-6.1" />
           <element id="library" level="project" name="Java EE 6-Java EE 6" />
           <element id="library" level="project" name="postgresql-42.2.14" />
+          <element id="library" level="project" name="javax.inject:javax.inject:1" />
         </element>
       </element>
+      <element id="jpa-descriptors" facet="Lab3k/jpa/JPA" />
     </root>
   </artifact>
 </component>

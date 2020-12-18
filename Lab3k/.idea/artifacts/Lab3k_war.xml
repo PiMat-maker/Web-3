@@ -3,6 +3,9 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Lab3k_war</output-path>
     <root id="archive" name="Lab3k_war.war">
       <element id="artifact" artifact-name="Lab3k:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib" />
+      </element>
     </root>
   </artifact>
 </component>

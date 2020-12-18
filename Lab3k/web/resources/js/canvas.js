@@ -180,8 +180,8 @@ $(document).ready(
         document.getElementById("plot:yCanvas").value = yCalculated;
         document.getElementById("plot:hiddenButton").click();
         //count number of columns in result
-        arrayRows.push(currentNumberRows);
-        currentNumberRows += 1;
+        arrayRows.push(Math.max(currentNumberRows, document.getElementsByClassName("order-table-row").length));
+        currentNumberRows = Math.max(currentNumberRows + 1, document.getElementsByClassName("order-table-row").length + 1);
         console.log("ADD" + arrayRows.toString());
     })
 );
@@ -189,6 +189,7 @@ $(document).ready(
 document.addEventListener("DOMNodeInserted", () => {
     let row = document.getElementsByClassName("order-table-row").length - 1;
     const index = arrayRows.indexOf(row);
+    console.log("THIS ROW " + row);
     if (index !== -1){
         console.log(arrayRows.indexOf(row) + " " + arrayRows.toString());
         arrayRows.splice(index, 1);

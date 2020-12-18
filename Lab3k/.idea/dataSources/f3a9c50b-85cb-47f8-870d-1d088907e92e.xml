@@ -9,21 +9,21 @@
       <ObjectId>13318</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1045</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1049</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|16468|16470|1
+      <Relations>sequence|table|16404|16406|1
 sequence|table|16416|16418|1
 sequence|table|16442|16444|1
-sequence|table|16530|16532|1
+sequence|table|16468|16470|1
 sequence|table|16498|16500|1
 sequence|table|16513|16515|1
-sequence|table|16404|16406|1
+sequence|table|16530|16532|1
 </Relations>
     </database>
     <database id="3" parent="1" name="test">
       <ObjectId>16570</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1047</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1048</IntrospectionStateNumber>
     </database>
     <role id="4" parent="1" name="pg_execute_server_program">
       <ObjectId>4571</ObjectId>
@@ -80,7 +80,7 @@ sequence|table|16404|16406|1
       <Comment>standard public schema</Comment>
       <StateNumber>276</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1046</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1050</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="17" parent="2" name="heap">
