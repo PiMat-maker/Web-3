@@ -12,12 +12,12 @@
       <IntrospectionStateNumber>1049</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16404|16406|1
-sequence|table|16416|16418|1
-sequence|table|16442|16444|1
 sequence|table|16468|16470|1
-sequence|table|16498|16500|1
+sequence|table|16442|16444|1
+sequence|table|16416|16418|1
 sequence|table|16513|16515|1
 sequence|table|16530|16532|1
+sequence|table|16498|16500|1
 </Relations>
     </database>
     <database id="3" parent="1" name="test">

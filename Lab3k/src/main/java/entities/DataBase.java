@@ -1,18 +1,20 @@
 package main.java.entities;
 
-import main.java.entities.FormBean;
+import com.sun.rowset.JdbcRowSetImpl;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
 import javax.inject.Named;
-import javax.persistence.*;
-import javax.transaction.NotSupportedException;
-import javax.transaction.SystemException;
-import javax.transaction.UserTransaction;
+import org.jetbrains.annotations.NotNull;
+
+import javax.sql.DataSource;
+import javax.sql.rowset.JdbcRowSet;
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,11 +24,9 @@ import java.util.List;
 @ApplicationScoped
 public class DataBase implements Serializable {
 
-    @PersistenceContext(unitName = "manager")
-    private EntityManager entityManager;
-
-    @Resource
-    UserTransaction userTransaction;
+    @Resource (mappedName="java:/PostgresDS")
+    private DataSource dataSource;
+    private Connection con;
 
     private FormBean formBean;
     private double plotX;
@@ -46,50 +46,86 @@ public class DataBase implements Serializable {
 
     public FormBean getFormBean() { return formBean; }
 
-    public void setEntityManager(EntityManager entityManager) { this.entityManager = entityManager; }
-
-    public EntityManager getEntityManager() { return entityManager; }
-
     @PostConstruct
-    public void init(){
+    public void init() {
         formBean = new FormBean();
+        try {
+            con = dataSource.getConnection();
+        } catch (SQLException e){
+            System.out.println("Connection exception");
+        }
     }
 
-    public void save(FormBean formBean) {
-        formBean.setWorkTime(System.currentTimeMillis());
-        formBean.getResult();
-        formBean.setWorkTime(System.currentTimeMillis() - formBean.getWorkTime());
+    public void setCon(Connection con) {
+        this.con = con;
+    }
+
+    public Connection getCon() {
+        return con;
+    }
+
+    public void save(@NotNull FormBean bean) throws SQLException {
+        bean.setWorkTime(System.currentTimeMillis());
+        String sql = "INSERT INTO results (x, y, R, result, workTime, currentTime) VALUES (?, ?, ?, ?, ?, ?)";
+        PreparedStatement preparedStatement = getCon().prepareStatement(sql);
+        preparedStatement.setBoolean(4, bean.getResult());
+        bean.setWorkTime(System.currentTimeMillis() - bean.getWorkTime());
         SimpleDateFormat sDFormat = new SimpleDateFormat("HH:mm:ss");
-        formBean.setCurrentTime(sDFormat.format(Calendar.getInstance().getTime()));
-        try {
-            userTransaction.begin();
-            entityManager.persist(formBean);
-            userTransaction.commit();
-        }catch (Exception e){
-            System.out.println("UserTransaction Failed save");
-        }
+        bean.setCurrentTime(sDFormat.format(Calendar.getInstance().getTime()));
+
+        preparedStatement.setDouble(1, bean.getX());
+        preparedStatement.setDouble(2, bean.getY());
+        preparedStatement.setDouble(3, bean.getR());
+        preparedStatement.setLong(5, bean.getWorkTime());
+        preparedStatement.setString(6, bean.getCurrentTime());
+        preparedStatement.executeUpdate();
     }
 
-    public List<FormBean> getList(){
-        return new ArrayList<>((entityManager.createQuery("select res from FormBean res", FormBean.class)).getResultList());
+    public void clearSql() throws SQLException {
+        String sql = "DELETE from results";
+        Statement statement = con.createStatement();
+        statement.execute(sql);
     }
 
-    public void clear(){
-        try {
-            userTransaction.begin();
-            entityManager.createQuery("delete from FormBean res");
-            userTransaction.commit();
-        }catch (Exception e){
-            System.out.println("UserTransaction Failed clear");
+    public List<FormBean> getList() {
+        List<FormBean> list = new ArrayList<>();
+        try{
+            JdbcRowSet result = new JdbcRowSetImpl(getCon());
+            result.setCommand("SELECT * FROM results");
+            result.execute();
+            while (result.next()) {
+                FormBean bean = new FormBean();
+                bean.setX(result.getDouble("x"));
+                bean.setY(result.getDouble("y"));
+                bean.setR(result.getDouble("R"));
+                bean.setResult(result.getBoolean("result"));
+                bean.setWorkTime(result.getLong("workTime"));
+                bean.setCurrentTime(result.getString("currentTime"));
+                list.add(bean);
+            }
+        } catch (SQLException e) {
+            System.out.println("Upload list exception");
+            e.printStackTrace();
         }
+        return list;
     }
+
 
     public void addCoordinates(){
-        save(new FormBean (plotX, plotY, formBean.getR()));
+        try {
+            save(new FormBean (plotX, plotY, formBean.getR()));
+        } catch (SQLException e) {
+            System.out.println("Save exception coordinate");
+            e.printStackTrace();
+        }
     }
 
     public void addPoint(){
-        save(new FormBean(formBean.getX(), formBean.getY(), formBean.getR()));
+        try {
+            save(new FormBean(formBean.getX(), formBean.getY(), formBean.getR()));
+        } catch (SQLException e) {
+            System.out.println("Save exception point");
+        }
     }
 
     public String toMainPage(){

@@ -50,5 +50,6 @@
     <orderEntry type="library" exported="" name="postgresql-42.2.14" level="project" />
     <orderEntry type="library" exported="" name="javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" exported="" name="javax.enterprise:cdi-api:2.0" level="project" />
+    <orderEntry type="library" name="org.apache.geode:geode-core:1.13.1" level="project" />
   </component>
 </module>

@@ -76,7 +76,7 @@
                     <div class="y" id="checkbox_y">
                         <p>Y value:</p>
                         <p><h:message id="mess" for="text_field" style="color:red" /></p>
-                        <h:inputText name="y" id="text_field" value = "#{DB.formBean.y}" required="true">
+                        <h:inputText name="y" id="text_field" value = "#{DB.formBean.y}">
                             <f:converter converterId="converterY"/>
                             <f:validator validatorId="validatorY"/>
                             <f:ajax event="change" execute="@this" render="mess"/>

@@ -16,7 +16,7 @@ public class ValidatorY implements Validator {
             if (( y < -3) || ( y > 5)) {
                 throw new ValidatorException(new FacesMessage("Not in a range"));
             }
-        } catch(NumberFormatException e){
+        } catch(NumberFormatException | NullPointerException e){
             throw new ValidatorException(new FacesMessage("Not a number"));
         }
 

@@ -1,0 +1,64 @@
+<component name="libraryTable">
+  <library name="org.apache.geode:geode-core:1.13.1" type="repository">
+    <properties maven-id="org.apache.geode:geode-core:1.13.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geode/geode-core/1.13.1/geode-core-1.13.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/antlr/antlr/2.7.7/antlr-2.7.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.6/commons-io-2.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/micrometer/micrometer-core/1.4.1/micrometer-core-1.4.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/resource/javax.resource-api/1.7.1/javax.resource-api-1.7.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/transaction/javax.transaction-api/1.3/javax.transaction-api-1.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.6.0/shiro-core-1.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-lang/1.6.0/shiro-lang-1.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-cache/1.6.0/shiro-cache-1.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-crypto-hash/1.6.0/shiro-crypto-hash-1.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-crypto-core/1.6.0/shiro-crypto-core-1.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-crypto-cipher/1.6.0/shiro-crypto-cipher-1.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-config-core/1.6.0/shiro-config-core-1.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-config-ogdl/1.6.0/shiro-config-ogdl-1.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-event/1.6.0/shiro-event-1.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geode/geode-common/1.13.1/geode-common-1.13.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geode/geode-management/1.13.1/geode-management-1.13.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.12/httpclient-4.5.12.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.11/commons-codec-1.11.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.2.9.RELEASE/spring-web-5.2.9.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.9.RELEASE/spring-beans-5.2.9.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.2.9.RELEASE/spring-core-5.2.9.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jcl/5.2.9.RELEASE/spring-jcl-5.2.9.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jgroups/jgroups/3.6.14.Final/jgroups-3.6.14.Final.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-validator/commons-validator/1.6/commons-validator-1.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.2/commons-logging-1.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-impl/2.3.2/jaxb-impl-2.3.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.10/commons-lang3-3.10.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/it/unimi/dsi/fastutil/8.3.1/fastutil-8.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/jna/jna/5.5.0/jna-5.5.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/jna/jna-platform/5.5.0/jna-platform-5.5.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.13.1/log4j-api-2.13.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/github/classgraph/classgraph/4.8.52/classgraph-4.8.52.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/healthmarketscience/rmiio/rmiio/2.1.2/rmiio-2.1.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geode/geode-logging/1.13.1/geode-logging-1.13.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geode/geode-membership/1.13.1/geode-membership-1.13.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/stephenc/findbugs/findbugs-annotations/1.3.9-1/findbugs-annotations-1.3.9-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geode/geode-unsafe/1.13.1/geode-unsafe-1.13.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geode/geode-serialization/1.13.1/geode-serialization-1.13.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/geode/geode-tcp-server/1.13.1/geode-tcp-server-1.13.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/sun/activation/javax.activation/1.2.0/javax.activation-1.2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-runtime/3.0.11/istack-commons-runtime-3.0.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
